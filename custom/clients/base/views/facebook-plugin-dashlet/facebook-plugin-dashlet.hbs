@@ -1,0 +1,284 @@
+<html>
+<head>
+<link rel="stylesheet" href="custom/clients/base/views/facebook-plugin-dashlet/facebook-plugin-dashlet.css">
+<meta charset="UTF-8">
+</head>
+<body>
+<div class="fb {{page_name}}">
+<table class="table table-striped dataTable">
+<!-- <a class="rowaction btn fb_login" href="javascript:void(0);" name="fb_login" track="click:fb_login">
+	<i class="fb fa fa-sign-in"></i>
+</a>
+<a class="rowaction btn fb_logout" href="javascript:void(0);" name="fb_logout" track="click:fb_logout">
+	<i class="fb fa fa-sign-out"></i>
+</a> -->
+{{#user}}
+	<label>&nbsp;&nbsp;&nbsp;Thanks for logging in, <a href="https://www.facebook.com/{{user_id}}" target="_blank"><b>{{first_name}} {{last_name}}</b></a></label>
+{{/user}}
+	{{#eq module "Home"}}
+	<tr>
+        <th class="fb header-column from">
+            <span>{{str "LBL_FROM"}}</span>
+        </th>
+        <th class="fb header-column created_time">
+            <span>{{str "LBL_DATE_POSTED"}}</span>
+        </th>
+        <th class="fb header-column message">
+            <span>{{str "LBL_MESSAGE"}}</span>
+        </th>
+		<th class="fb header-column cases">
+            <span>{{str "LBL_CASES"}}</span>
+        </th>
+    </tr>
+	{{else}}
+	<tr>
+        <th class="fb header-column from">
+            <span>{{str "LBL_FROM"}}</span>
+        </th>
+        <th class="fb header-column message">
+            <span>{{str "LBL_MESSAGE"}}</span>
+        </th>
+    </tr>
+    {{/eq}}
+	<tbody>
+	{{#each data}}
+	{{#eq ../module "Cases"}}
+	<tr>
+		<td class="post-from">
+				<input type="hidden" name="id" data-id="{{id}}" value="{{id}}" />
+				<input type="hidden" name="created_time" data-id="{{id}}" value="{{created_time}}" />
+				<input type="hidden" name="from_id" data-id="{{from.id}}" value="{{from.id}}" />
+				<span><a href="https://www.facebook.com/{{from.id}}" target="_blank">{{from.name}}</a></span>
+		</td>
+		<td class="post-message">
+			<div class="message">{{message}}</div>
+			<div class="comments">
+                <table class="comments-table table table-striped dataTable">
+                    <tr class="header-row">
+                        <th class="header-column" colspan="2">
+                            <i class="fb fa fa-comments-o fa-1x icon icon-comment"></i>
+                                <a class="comment-link">{{str "LBL_COMMENTS"}} ({{comment_count}})</a>
+                            <i class="fb fa fa-thumbs-o-up fa-1x icon icon-thumbs-up"></i>{{str "LBL_LIKES"}} ({{likes_count}})
+                        </th>
+                    </tr>
+                {{#each comments}}
+                    <tr class="comment head">
+                        <td class="info">
+                            <span class="from">{{from.name}}</span>
+                            <br/>
+                            <span class="created_time">{{created_time}}</span>
+                        </td>
+                    </tr>
+                    <tr class="comment body">
+                        <td class="message">
+                            {{message}}
+                            {{#if attachment}}
+                            <div class="attachment">
+                                <i class="fb fa fa-paperclip fa-1x icon icon-paper-clip"></i>
+                                {{str "LBL_ATTACHMENT" "Emails"}}: 
+                            {{#eq attachment.type "photo"}}
+                                <a target="_blank" href="{{attachment.url}}">{{attachment.url}}</a>
+                            {{else}}
+                                {{#if attachment.url}}
+                                    <a target="_blank" href="{{attachment.url}}">{{attachment.url}}</a>
+                                {{/if}}
+                            {{/eq}}
+                            </div>
+                            {{/if}}
+                            <div class="comments">
+                                <table class="comments-table table table-striped dataTable">
+                                    <tr class="header-row">
+                                        <th class="header-column" colspan="1">
+                                            <i class="fb fa fa-comments-o fa-1x icon icon-comment"></i>
+                                            <a class="comment-link">{{str "LBL_COMMENTS"}} ({{comment_count}})</a>
+                                            <i class="fb fa fa-thumbs-o-up fa-1x icon icon-thumbs-up"></i>{{str "LBL_LIKES"}} ({{likes_count}})
+                                        </th>
+                                    </tr>
+                                {{#each comments}}
+                                    <tr class="comment head">
+                                        <td class="info">
+                                            <span class="from">{{from.name}}</span>
+                                            <br/>
+                                            <span class="created_time">{{created_time}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="comment body">
+                                        <td class="message">
+                                            {{message}}
+                                            {{#if attachment}}
+                                            <div class="attachment">
+                                                <i class="fb fa fa-paperclip fa-1x icon icon-paper-clip"></i>
+                                                {{str "LBL_ATTACHMENT" "Emails"}}: 
+                                            {{#eq attachment.type "photo"}}
+                                                <a target="_blank" href="{{attachment.url}}">{{attachment.url}}</a>
+                                            {{else}}
+                                                {{#if attachment.url}}
+                                                    <a target="_blank" href="{{attachment.url}}">{{attachment.url}}</a>
+                                                {{/if}}
+                                            {{/eq}}
+                                            </div>
+                                            {{/if}}
+                                            <br />
+                                            <span class="likes_container"><i class="fb fa fa-thumbs-o-up fa-1x icon icon-thumbs-up"></i>{{str "LBL_LIKES"}} ({{likes_count}})</span>
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                                <tr class="reply">
+                                    <td class="message" colspan="2">
+                                        <a class="rowaction btn btn-primary reply_button" href="javascript:void(0);" name="reply_button" data-id="{{id}}" track="click:reply_button">
+                                            {{str "LBL_BUTTON_REPLY" "Emails"}}
+                                        </a>
+                                        <textarea placeholder="Write a reply..." name="reply" class="reply-area" rows="1" data-id="{{id}}"></textarea>
+                                    </td>
+                                </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+                <tr class="reply">
+                    <td class="message" colspan="2">
+                        <a class="rowaction btn btn-primary reply_button" href="javascript:void(0);" name="reply_button" data-id="{{id}}" track="click:reply_button">
+                            {{str "LBL_BUTTON_REPLY" "Emails"}}
+                        </a>
+                        <textarea placeholder="Write a reply..." name="reply" class="reply-area" rows="1" data-id="{{id}}"></textarea>
+                    </td>
+                </tr>
+                </table>
+        </div>
+		</td>
+		
+	</tr>
+	{{/eq}}
+	{{/each}}
+	
+	
+	{{#each data}}
+	{{#eq ../module "Home"}}
+	<tr>
+		<td class="post-from">
+				<input type="hidden" name="id" data-id="{{id}}" value="{{id}}" />
+				<input type="hidden" name="created_time" data-id="{{id}}" value="{{created_time}}" />
+				<input type="hidden" name="from_id" data-id="{{from.id}}" value="{{from.id}}" />
+				<span><a href="https://www.facebook.com/{{from.id}}" target="_blank">{{from.name}}</a></span>
+		</td>
+		<td class="post-created_time">
+			<span><a href="{{external_link}}" target="_blank">{{created_time}}</a></span>
+		</td>
+		<td class="post-message">
+			<div class="message">{{message}}</div>
+			
+			<div class="comments">
+                <table class="comments-table table table-striped dataTable">
+                    <tr class="header-row">
+                        <th class="header-column" colspan="2">
+                            <i class="fb fa fa-comments-o fa-1x icon icon-comment"></i>
+                                <a class="comment-link">{{str "LBL_COMMENTS"}} ({{comment_count}})</a>
+                            <i class="fb fa fa-thumbs-o-up fa-1x icon icon-thumbs-up"></i>{{str "LBL_LIKES"}} ({{likes_count}})
+                        </th>
+                    </tr>
+                {{#each comments}}
+                    <tr class="comment head">
+                        <td class="info">
+                            <span class="from">{{from.name}}</span>
+                            <br/>
+                            <span class="created_time">{{created_time}}</span>
+                        </td>
+                    </tr>
+                    <tr class="comment body">
+                        <td class="message">
+                            {{message}}
+                            {{#if attachment}}
+                            <div class="attachment">
+                                <i class="fb fa fa-paperclip fa-1x icon icon-paper-clip"></i>
+                                {{str "Attachment" "Emails"}}: 
+                            {{#eq attachment.type "photo"}}
+                                <a target="_blank" href="{{attachment.url}}">{{attachment.url}}</a>
+                            {{else}}
+                                {{#if attachment.url}}
+                                    <a target="_blank" href="{{attachment.url}}">{{attachment.url}}</a>
+                                {{/if}}
+                            {{/eq}}
+                            </div>
+                            {{/if}}
+                            <div class="comments">
+                                <table class="comments-table table table-striped dataTable">
+                                    <tr class="header-row">
+                                        <th class="header-column" colspan="1">
+                                            <i class="fb fa fa-comments-o fa-1x icon icon-comment"></i>
+                                            <a class="comment-link">{{str "LBL_COMMENTS"}} ({{comment_count}})</a>
+                                            <i class="fb fa fa-thumbs-o-up fa-1x icon icon-thumbs-up"></i>{{str "LBL_LIKES"}} ({{likes_count}})
+                                        </th>
+                                    </tr>
+                                {{#each comments}}
+                                    <tr class="comment head">
+                                        <td class="info">
+                                            <span class="from">{{from.name}}</span>
+                                            <br/>
+                                            <span class="created_time">{{created_time}}</span>
+                                        </td>
+                                    </tr>
+                                    <tr class="comment body">
+                                        <td class="message">
+                                            {{message}}
+                                            {{#if attachment}}
+                                            <div class="attachment">
+                                                <i class="fb fa fa-paperclip fa-1x icon icon-paper-clip"></i>
+                                                {{str "Attachment" "Emails"}}: 
+                                            {{#eq attachment.type "photo"}}
+                                                <a target="_blank" href="{{attachment.url}}">{{attachment.url}}</a>
+                                            {{else}}
+                                                {{#if attachment.url}}
+                                                    <a target="_blank" href="{{attachment.url}}">{{attachment.url}}</a>
+                                                {{/if}}
+                                            {{/eq}}
+                                            </div>
+                                            {{/if}}
+                                            <br />
+                                            <span class="likes_container"><i class="fb fa fa-thumbs-o-up fa-1x icon icon-thumbs-up"></i>{{str "LBL_LIKES"}} ({{likes_count}})</span>
+                                        </td>
+                                    </tr>
+                                {{/each}}
+                                <tr class="reply">
+                                    <td class="message" colspan="2">
+                                        <a class="rowaction btn btn-primary reply_button" href="javascript:void(0);" name="reply_button" data-id="{{id}}" track="click:reply_button">
+                                            {{str "LBL_BUTTON_REPLY" "Emails"}}
+                                        </a>
+                                        <textarea placeholder="Write a reply..." name="reply" class="reply-area" rows="1" data-id="{{id}}"></textarea>
+                                    </td>
+                                </tr>
+                                </table>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+                <tr class="reply">
+                    <td class="message" colspan="2">
+                        <a class="rowaction btn btn-primary reply_button" href="javascript:void(0);" name="reply_button" data-id="{{id}}" track="click:reply_button">
+                            {{str "LBL_BUTTON_REPLY" "Emails"}}
+                        </a>
+                        <textarea placeholder="Write a reply..." name="reply" class="reply-area" rows="1" data-id="{{id}}"></textarea>
+                    </td>
+                </tr>
+                </table>
+        </div>
+		</td>
+		<td class="post-cases">
+			{{#if has_case}}
+				<a title="View case" class="rowaction btn create_case_button" href="javascript:void(0);" name="create_case_button" {{#if case_id}}data-caseid="{{case_id}}"{{else}}data-caseid=""{{/if}} data-id="{{id}}" track="click:create_case_button">
+					<i class="fb fa fa-eye fa-1x icon icon-eye-open"></i>
+				</a>
+			{{else}}
+				<a title="Create new case" class="rowaction btn btn-primary create_case_button" href="javascript:void(0);" name="create_case_button" data-caseid="" data-id="{{id}}" track="click:create_case_button">
+					<i class="fb fa fa-edit fa-1x icon icon-edit"></i>
+				</a>
+			{{/if}}
+		</td>
+	</tr>
+	{{/eq}}
+	{{/each}}
+	</tbody>
+</table>
+</div>
+</body>
+</html>

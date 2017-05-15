@@ -1,0 +1,53 @@
+<!--
+/*
+* Copyright (c) 2014-2015 SugarCRM Inc.  This product is licensed by SugarCRM
+* pursuant to the terms of the End User License Agreement available at
+* http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/10_Marketo/
+*/
+-->
+<h2>Overview</h2>
+<span class="lead">
+This function retrieves a single lead record from Marketo, with all field values for the built-in and custom fields, for a lead identified by the provided key (LeadKey). If the lead exists based on the input parameters, the lead record attributes will be returned in the result.<br>
+<br>
+NOTE: Lead attributes that are of string data type and are empty will not be returned as a part of the response.
+</span>
+
+<h2>Query Parameters</h2>
+<table>
+    <tr>
+        <td><strong>Param</strong></td>
+        <td><strong>Description</strong></td>
+    </tr>
+    <tr>
+        <td>keyType</td>
+        <td>
+            keyType allows you to specify the field you wish to query the lead by. Possible values include:
+            <ul>
+                <li>IDNUM: The Marketo ID (e.g. 64)</li>
+                <li>EMAIL: The email address associated with the lead. (e.g. jeff@neposystems.com)</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>keyValue</td>
+        <td>keyValue is the value you wish to query the lead by.</td>
+    </tr>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+    "id": 1,
+    "email": "example.user@company.com",
+    "behavioralscore": "10",
+    "billingstate": "VA",
+    "company": "Company Name",
+    "firstname": "Example",
+    "lastname": "User",
+    "leadscore": 100,
+    "leadstatus": "Converted",
+    "phone": "703-996-2200, ext.1",
+    "title": "Job Title",
+    "website": "company.com"
+}
+</pre>

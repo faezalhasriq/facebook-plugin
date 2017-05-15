@@ -1,0 +1,5 @@
+<?php
+//THIS FILE IS AUTO GENERATED, DO NOT MODIFY
+$mod_strings['LBL_CONTACTS_CASES_1_FROM_CONTACTS_TITLE'] = 'Contacts';
+$mod_strings['LBL_CONTACTS_CASES_1_FROM_CASES_TITLE_ID'] = 'Contacts ID';
+$mod_strings['LBL_CONTACTS_CASES_1_FROM_CASES_TITLE'] = 'Contacts';

@@ -1,0 +1,51 @@
+<div class="record">
+    <div class="config_container" style="margin-left: 30px; margin-right: 30px;">
+        <div class="span3 config_options" style="margin: 10px;">
+            {{#each meta.fields}}
+            <h4>{{str label ../module}}</h4>
+            {{#if description}}
+                <span class="description">{{str description ../../module}}</span><br/>
+            {{/if}}
+            {{field ../this model=../configModel template="edit"}}
+            <br/>
+            {{/each}}
+        </div>
+        {{#eq configModel.attributes.fb_license_type 'addoptify'}}
+        <div class="span12 config_values" style="margin: 10px;">
+            {{#each meta.addoptify_fields}}
+            <h4>{{str label ../module}}</h4>
+            {{#if description}}
+                <span class="description">{{str description ../../module}}</span><br/>
+            {{/if}}
+            {{field ../this model=../configModel template="edit"}}
+            <br/>
+            {{/each}}
+        </div>
+        {{/eq}}
+        {{#eq configModel.attributes.fb_license_type 'outfitters'}}
+        <div class="span12 config_values" style="margin: 10px;">
+            {{#each meta.outfitters_fields}}
+            <h4>{{str label ../module}}</h4>
+            {{#if description}}
+                <span class="description">{{str description ../../module}}</span><br/>
+            {{/if}}
+            {{field ../this model=../configModel template="edit"}}
+            <br/>
+            {{/each}}
+        </div>
+        {{/eq}}
+
+    </div>
+</div>
+
+<style>
+    .config_container .config_values input {
+        width: 60%;
+    }
+    .config_container .span3.config_options {
+        width: 90%;
+    }
+    .config_container .span3.config_options .select2-container.select2 {
+        width: 40%;
+    }
+</style>

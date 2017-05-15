@@ -1,0 +1,57 @@
+{{!
+/*
+* Copyright (c) 2014-2015 SugarCRM Inc.  This product is licensed by SugarCRM
+* pursuant to the terms of the End User License Agreement available at
+* http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/10_Marketo/
+*/
+ }}
+
+<div class="main-pane span12">
+    <div>
+        <div>
+            <div class="headerpane">
+                <h1>
+                    <div class="record-cell">
+                        <span class="module-title">Marketo Synchronization Information</span>
+                    </div>
+                </h1>
+            </div>
+        </div>
+        <div>
+            <div class="main-content">
+                <div>
+                    <div>
+                        <div style="padding-top: 10px;">
+                            {{#if errmsg}}
+                                <div class="block-footer">{{str "ERR_HTTP_500_TEXT"}} {{errmsg}}</div>
+                            {{else}}
+                                <table class="table table-striped table-bordered">
+                                    {{#if data.sync}}
+                                        <tr>
+                                            <th>Process Name</th>
+                                            <th>Remaining Count</th>
+                                            <th>Last Updated</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Lead Synchronization</td>
+                                            <td>{{{data.sync.remainingCount}}}</td>
+                                            <td>{{{data.sync.date_modified}}}</td>
+                                        </tr>
+                                    {{/if}}
+                                    {{#if data.activity}}
+                                        <tr>
+                                            <td>Activity Log Synchronization</td>
+                                            <td>{{{data.activity.remainingCount}}}</td>
+                                            <td>{{{data.activity.date_modified}}}</td>
+                                        </tr>
+                                    {{/if}}
+                                </table>
+                            {{/if}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

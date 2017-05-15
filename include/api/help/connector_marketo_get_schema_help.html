@@ -1,0 +1,71 @@
+<!--
+/*
+* Copyright (c) 2014-2015 SugarCRM Inc.  This product is licensed by SugarCRM
+* pursuant to the terms of the End User License Agreement available at
+* http://support.sugarcrm.com/06_Customer_Center/10_Master_Subscription_Agreements/10_Marketo/
+*/
+ -->
+<!--suppress ALL -->
+<h2>Overview</h2>
+<span class="lead">
+This function returns the metadata for Standard and Virtual MObjects.  It takes in the Marketo object as input and returns the field attributes that are associated to that object.
+</span>
+
+<h2>Query Parameters</h2>
+<table>
+    <tr>
+        <td><strong>Param</strong></td>
+        <td><strong>Description</strong></td>
+    </tr>
+    <tr>
+        <td>objectName</td>
+        <td>
+            Possible values are:
+            LeadRecord,
+            Opportunity, or
+            OpportunityPersonRole
+        </td>
+    </tr>
+</table>
+
+<h3>Output Example</h3>
+<pre class="pre-scrollable">
+{
+    "address": {
+        "name": "address",
+        "marketo": "Address",
+        "vname": "LBL_ADDRESS",
+        "type": "text",
+        "displayName": "Address",
+        "description": null,
+        "sourceObject": "Lead",
+        "size": 2000,
+        "isReadonly": false,
+        "isUpdateBlocked": false,
+        "isName": null,
+        "isPrimaryKey": false,
+        "isCustom": false,
+        "isDynamic": true,
+        "dynamicFieldRef": "leadAttributeList",
+        "updatedAt": "2013-04-15T15:15:45-05:00"
+    },
+    "anonymousip": {
+        "name": "anonymousip",
+        "marketo": "AnonymousIP",
+        "vname": "LBL_ANONYMOUSIP",
+        "type": "varchar",
+        "displayName": "Anonymous IP",
+        "description": null,
+        "sourceObject": "Lead",
+        "size": 255,
+        "isReadonly": false,
+        "isUpdateBlocked": true,
+        "isName": null,
+        "isPrimaryKey": false,
+        "isCustom": false,
+        "isDynamic": true,
+        "dynamicFieldRef": "leadAttributeList",
+        "updatedAt": "2013-12-13T05:03:12-06:00"
+    }
+}
+</pre>

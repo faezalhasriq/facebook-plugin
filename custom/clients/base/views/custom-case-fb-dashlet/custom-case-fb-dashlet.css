@@ -1,0 +1,201 @@
+th.fb.header-column.from {
+    width: 15%;
+    min-width: 65px;
+	font-weight: bold;
+}
+th.fb.header-column.created_time {
+    width: 12%;
+    min-width: 70px;
+	font-weight: bold;
+}
+th.fb.header-column.message {
+    font-weight: bold;
+}
+th.fb.header-column.cases {
+    width: 5%;
+    max-width: 55px;
+    min-width: 40px;
+	font-weight: bold;
+}
+.fb.fa-spinner {
+    vertical-align: middle;
+}
+.fb .comments {
+    margin-top: 5px;
+}
+.fb .comments .comment-link {
+    font-size: 11px;
+    margin-right: 5px;
+}
+.fb .likes_container {
+    font-size: 11px;
+    margin-top: 5px;
+}
+.fb .comments .comment {
+    display: none;
+    padding: 0px 0px 5px 0px;
+    overflow: auto;
+}
+.fb .comments .reply {
+    display: none;
+}
+.fb .comments tr.comment {
+    border-right: 1px solid #176DE5;
+    border-left: 2px solid #176DE5;
+}
+.fb .comments tr.reply {
+    border-right: 1px solid #E0E0E0;
+    border-left: 2px solid #176DE5;
+    border-bottom: 1px solid #E0E0E0 !important;
+}
+.fb .comments .comment .info {
+    width: 20%;
+    border-right: 1px solid #E0E0E0 ;
+    vertical-align: top;
+    padding-top: 2px;
+    padding-bottom: 0px;
+}
+.fb .comment .info {
+    vertical-align: top;
+    padding-top: 10px;
+}
+.fb .comments .comment .message {
+    width: 80%;
+    padding: 5px;
+    border-right: 1px solid #E0E0E0;
+    border-left: 1px solid #E0E0E0;
+    border-bottom: 1px solid darkgray;
+}
+
+.fb .comments .header-column {
+    padding: 0px 0px 0px 5px;
+    line-height: 13px;
+    background-color: white;
+    border-top: none;
+}
+.fb .comments .comments-table {
+    margin-bottom: 0px;
+    margin-top: 10px;
+    margin-left: 4px;
+    border: none;
+}
+.fb .comments .header-row {
+    border-top: none;
+    border-bottom: none;
+}
+.fb .comments .comments-table .attachment {
+    margin-top: 8px;
+}
+.fb td.post-message {
+    padding-left: 0px;
+}
+.fb td.post-message .message {
+    padding-left: 5px;
+    margin: 5px 5px 5px 0px;
+    white-space: normal;
+}
+.fb .post-from span {
+    margin-left: 5px;
+    white-space: normal !important;
+}
+.fb td.post-from {
+    border-right: 1px solid #E0E0E0;
+    vertical-align: top;
+    padding-top: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.fb td.post-created_time {
+    border-right: 1px solid #E0E0E0;
+    vertical-align: top;
+    padding-top: 10px;
+}
+.fb td.post-created_time span {
+    white-space: normal;
+}
+.fb .post-created_time .link {
+    margin-top: 0px;
+}
+.dataTable.table-striped tbody > tr:not(.current):not(.tr-inline-edit):nth-child(odd) .comments-table .header-column {
+    background: #F6F6F6;
+}
+.table-striped tbody > tr:nth-child(odd) .comments-table .header-column {
+}
+.dataTable.table-striped tbody > tr:not(.current):not(.tr-inline-edit):nth-child(odd) > td .reply .message {
+    background: white;
+}
+.fb a {
+    color: #155EC5;
+}
+.fb a.btn {
+    color: #F7FFFF;
+    min-height: 15px;
+    min-width: 25px;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+.fb .comments .reply textarea {
+    width: 80%;
+}
+.fb .comments .reply .info {
+}
+.fb .comments .reply .message {
+    padding: 5px;
+    background: white;
+}
+.fb .comment .info .created_time {
+    color: gray;
+    font-size: 11px;
+}
+.fb td.post-cases {
+    text-align: center;
+    vertical-align: top;
+    padding-top: 13px;
+    padding-left: 2px;
+}
+.fb td.post-cases .fa {
+    font-size: 12px;
+    line-height: 12px;
+    height: 12px;
+    width: 12px;
+}
+.fb a.rowaction.btn.create_case_button.disabled {
+    cursor: pointer;
+    border-color: #ADADAD;
+}
+.fb a.rowaction.btn.create_case_button.disabled:hover {
+    background-color: #ECECEC;
+}
+.fb a.rowaction.btn.btn-primary.create_case_button:hover {
+    background-color: #2475E6;
+    background-image: linear-gradient(to bottom, #115ECC, #2475E6);
+}
+.fb a.rowaction.btn.btn-primary.create_case_button {
+    min-width: 25px;
+    min-height: 18px;
+}
+.fb .error {
+    padding: 20px;
+    border-top: 1px solid #DDDDDD;
+}
+.fb .info.message .create_time {
+    margin-bottom: 5px;
+}
+.fb .info.message {
+    margin-bottom: 5px;
+}
+.fb .comment .message {
+    padding-top: 11px;
+}
+.fb .comments .message a.btn {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+.post-message .comments .comment.body td.message {
+    padding-left: 10px;
+}
+.fb .post-message .comments .comment .header-column {
+    padding-left: 0px;
+}
